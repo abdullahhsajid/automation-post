@@ -38,7 +38,7 @@ def researcher(state: State) -> State:
 def writer(state: State) -> State:
     messages = state["messages"]
     llm = ChatOpenAI(model="gpt-4", api_key=api_key)
-    response = llm.invoke(messages + [HumanMessage(content="your writer agent so write comprehensive base on topic")])
+    response = llm.invoke(messages + [HumanMessage(content="your writer agent so write comprehensive base on topic and words should be 200")])
     return {
         "messages": messages + [response],
         "next_steps": [END]
